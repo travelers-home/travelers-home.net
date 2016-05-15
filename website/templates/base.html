@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+  <head>
+
+    <!-- Pull in all the CSS and JS scripts -->
+    {% include 'layouts/head.html' with context %}
+
+    <!-- Allow inline CSS from child page -->
+    <style>
+      {% block style %}{% endblock style %}
+    </style>
+
+    <!-- Pull title from each page if it exists -->
+    <title>
+      {% block title %}Ramblings{% endblock title %}
+    </title> 
+
+  </head>
+
+  <body>
+
+  <!-- Get the <header> data -->
+  {% include 'layouts/header.html' %}
+
+  <!-- Main DIV -->
+  <div class="container-fluid text-center">
+    <div class="row">
+
+      <!-- Pull in the Progress bars and Left Column -->
+      {% include 'layouts/left_col.html' %} 
+
+      <!-- Central Content DIV -->
+      <div class="col-sm-7 text-left" >
+        <!-- Central ALERT Text -->
+        {% block alert %}{% endblock alert %}
+
+        <!-- CONTENT PAGE TITLE -->
+        {% if self.pagetitle() %}
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h1>{% block pagetitle %}{% endblock pagetitle %}</h1> 
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Get the Main Content -->
+        {% block content %}
+          Default content
+        {% endblock content %}
+
+        <!-- Pagination -->
+        {% include 'layouts/central-pagination.html' %}
+
+      <!-- END Central Content DIV -->
+      </div>
+   
+      <!-- Social Media / Right Column --> 
+      {% include 'layouts/right_col.html' %}
+
+    <!-- END Main DIV -->
+    </div>
+  </div>
+
+  <!-- get the <footer> -->
+  {% include 'layouts/footer.html' %} 
+
+  </body>
+</html>

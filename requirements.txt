@@ -1,0 +1,8 @@
+Flask
+Flask-FlatPages
+Flask-Images
+Genshi
+Jinja2
+Pygments
+Werkzeug
+uwsgi
