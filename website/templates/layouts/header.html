@@ -15,8 +15,10 @@
 
         <div class="collapse navbar-collapse navbar-left" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li {{is_active('pages.all_pages')}}><a href="{{ url_for('pages.all_pages') }}">Home</a></li>
-            <li {{is_active('general.contact')}}><a href="{{ url_for('general.contact') }}">Contact</a></li>
+           {% for section in sections %}
+              <li {{is_active(section=section)}}><a href="{{url_for('pages.section', section=section)}}">{{section}}</a></li>
+            {% endfor %} 
+            <li {{is_active('general.contact')}}><a href="{{ url_for('general.contact') }}">contact</a></li>
           </ul>
         </div> 
 

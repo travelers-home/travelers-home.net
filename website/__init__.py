@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['SECTION_MAX_LINKS'] = 10
 app.config['FLATPAGES_HTML_RENDERE'] = jinja_renderer
 app.config.from_object('config')
-pages = FlatPages(app)
+flatpages = FlatPages(app)
 images = Images(app)
 
 from website.views import general
@@ -39,7 +39,10 @@ def context_data():
     elif section:
       if 'section' in request.view_args:
         return rtn if request.view_args['section'] == section else ''
+      elif 'path' in request.view_args:
+        return rtn if request.view_args['path'].split('/')[0] == section else ''
     return ''
   return dict(is_active=is_active,
-              debug=app.debug)
+              debug=app.debug,
+              sections=pages.get_sections(flatpages))
 

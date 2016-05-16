@@ -49,7 +49,15 @@ def get_pages(pages, offset=None, limit=None, section=None, year=None, before=No
     return things[offset:]
   else:
     return things
-  
+
+def get_sections(pages):
+  things = list(pages)
+  for thing in things:
+    if not thing.meta.get('section'):
+      thing.meta['section'] = thing.path.split('/')[0]
+  sections = list(set([page.meta.get('section') for page in pages]))
+  return sections
+
 def get_years(pages):
   years = list(set([page.meta.get('date').year for page in pages]))
   years.reverse()
