@@ -42,7 +42,10 @@ def context_data():
       elif 'path' in request.view_args:
         return rtn if request.view_args['path'].split('/')[0] == section else ''
     return ''
+  def subsections(section):
+    return pages.get_subsections(flatpages, section)
   return dict(is_active=is_active,
               debug=app.debug,
-              sections=pages.get_sections(flatpages))
+              sections=pages.get_sections(flatpages),
+              subsections=subsections)
 
