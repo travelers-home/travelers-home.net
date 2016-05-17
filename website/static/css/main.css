@@ -1,37 +1,37 @@
 * {
   font-family: 'Roboto Slab', sans-serif;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 body {
-  background-color: #37474f;
+  background-color: #0B6B73;
 }
 
 a, a:hover, a:visited, a:active, a:link {
-  color: #46a4e8;
+  color: #DFB883;
   text-decoration: none;
 }
 
 h1 {
   font-size: 110%;
   font-family: 'Press Start 2P', cursive;
-  color: #46a4e8;
+  color: #DFB883;
 }
 
 h2 {
   font-family: 'Press Start 2P', cursive;
   font-size: 100%;
-  color: #46a4e8;
+  color: #DFB883;
 }
 
 h3 {
   font-size: 80%;
   font-family: 'Press Start 2P', cursive;
-  color: #46a4e8;
+  color: #DFB883;
 }
   
 .well {
-  background-color: #253137;
+  background-color: #097B85;
 }
 
 header nav ul.social {

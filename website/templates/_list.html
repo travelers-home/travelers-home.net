@@ -2,7 +2,7 @@
     {%- for page in pages %}
     <div class="well {% if not page.published %}unpublished{% endif %}">
         <h2>
-            <a href="{{ url_for('pages.page', path=page.path) }}">{{ page.title }}</a>
+            <a href="{{ url_for('pages.page', path=page.path) }}">{{ page.pagetitle }}</a>
             | <time datetime="{{ page.date }}">{{ page.date }}</time>
         </h2>
         <q itemprop="description">
