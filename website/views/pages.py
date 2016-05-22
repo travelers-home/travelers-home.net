@@ -61,7 +61,7 @@ def get_sections(pages):
   for thing in things:
     if not thing.meta.get('section'):
       thing.meta['section'] = thing.path.split('/')[0]
-  return list(set([thing.meta.get('section') for thing in things]))
+  return sorted(list(set([thing.meta.get('section') for thing in things])))
 
 def get_subsections(pages, section):
   pages = list(get_pages(pages, section=section))
@@ -73,7 +73,7 @@ def get_subsections(pages, section):
         things.append(page)
     else:
       things.append(page)
-  return list(set([thing.meta.get('subsection') for thing in things]))
+  return sorted(list(set([thing.meta.get('subsection') for thing in things])))
 
 def get_years(pages):
   years = list(set([page.meta.get('date').year for page in pages]))
