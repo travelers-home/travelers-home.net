@@ -18,7 +18,9 @@ def get_pages(pages, offset=None, limit=None, section=None, subsection=None, yea
     if not thing.meta.get('section'):
       thing.meta['section'] = thing.path.split('/')[0]
     if not thing.meta.get('subsection'):
-      thing.meta['subsection'] = thing.path.split('/')[1]
+      # if subsection isn't set manually, only set it if the path is long enough
+      if len(thing.path.split('/')) > 2:
+        thing.meta['subsection'] = thing.path.split('/')[1]
   # filter unpublished
   if not app.debug:
     things = [p for p in things if p.meta.get('published') is True]
@@ -59,18 +61,19 @@ def get_sections(pages):
   for thing in things:
     if not thing.meta.get('section'):
       thing.meta['section'] = thing.path.split('/')[0]
-  sections = list(set([page.meta.get('section') for page in pages]))
-  return sections
+  return list(set([thing.meta.get('section') for thing in things]))
 
 def get_subsections(pages, section):
-  things = list(pages)
-  for thing in things:
-    if not thing.meta.get('section'):
-      thing.meta['section'] = thing.path.split('/')[0]
-    if not thing.meta.get('subsection'):
-      thing.meta['subsection'] = thing.path.split('/')[1]
-  subsections = list(set([page.meta.get('subsection') for page in pages]))
-  return subsections
+  pages = list(get_pages(pages, section=section))
+  things = []
+  for page in pages:
+    if not page.meta.get('subsection'):
+      if len(page.path.split('/')) > 2:
+        page.meta['subsection'] = page.path.split('/')[1]
+        things.append(page)
+    else:
+      things.append(page)
+  return list(set([thing.meta.get('subsection') for thing in things]))
 
 def get_years(pages):
   years = list(set([page.meta.get('date').year for page in pages]))
