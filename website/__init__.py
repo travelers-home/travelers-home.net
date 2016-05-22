@@ -44,8 +44,11 @@ def context_data():
     return ''
   def subsections(section):
     return pages.get_subsections(flatpages, section)
+  def prettify(link_text):
+    return link_text.replace('-', ' ').title()
   return dict(is_active=is_active,
               debug=app.debug,
               sections=pages.get_sections(flatpages),
+              prettify=prettify,
               subsections=subsections)
 

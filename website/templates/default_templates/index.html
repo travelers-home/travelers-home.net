@@ -5,7 +5,7 @@
 {% block left_col %}
   {% for subsection in subsections(section) %}
     <div class="well">
-      <a href="{{ url_for('pages.subsection', section=section, subsection=subsection) }}">{{subsection}}</a>
+      <a href="{{ url_for('pages.subsection', section=section, subsection=subsection) }}">{{prettify(subsection)}}</a>
     </div>
   {% endfor %}
 {% endblock left_col %}
