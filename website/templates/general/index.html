@@ -1,7 +1,9 @@
 {% extends 'blog/base.html' %}
-{% block title %}Traveler's Home{% endblock %}
+{% block title %}Traveler's Home{% endblock title %}
 {% block content %}
 <h3> Latest Things</h3>
 {% include "_list.html" %}
-
-{% endblock %}
+{% endblock content%}
+{% block right_col %}
+{% include "layouts/twitter.html" %}
+{% endblock right_col %}
