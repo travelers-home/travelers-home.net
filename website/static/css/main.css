@@ -1,5 +1,5 @@
 * {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: 'Courgette', cursive;
   color: #FFFFFF;
 }
 
@@ -13,20 +13,20 @@ a, a:hover, a:visited, a:active, a:link {
 }
 
 h1 {
-  font-size: 110%;
-  font-family: 'Press Start 2P', cursive;
+  font-size: 150%;
+  font-family: 'Courgette', cursive;
   color: #DFB883;
 }
 
 h2 {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 100%;
+  font-family: 'Courgette', cursive;
+  font-size: 125%;
   color: #DFB883;
 }
 
 h3 {
-  font-size: 80%;
-  font-family: 'Press Start 2P', cursive;
+  font-size: 110%;
+  font-family: 'Courgette', cursive;
   color: #DFB883;
 }
   
@@ -42,6 +42,10 @@ header nav ul.social li {
   font-size: 120%;
   margin: 0px;
   text-decoration: none;
+}
+
+.navbar-link li a, .navbar-brand {
+  font-family: 'Roboto-Slab', sans-serif;
 }
 
 .unpublished q, .unpublished time {
